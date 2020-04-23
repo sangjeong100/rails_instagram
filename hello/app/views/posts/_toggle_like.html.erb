@@ -1,0 +1,9 @@
+<% if current_user%>
+  <div id="toggle_like">
+    <% if current_user.likes.find_by(post_id: post.id).nil? %>
+      <%=link_to image_tag("/unlike.png",  width: '40px', height: '23px', border: 'none'), toggle_like_post_path(post.id),method: :POST,remote: true, class:"btn btn-lg btn-secondary"%>
+    <% else %>
+      <%=link_to image_tag("/like.png", width: '40px', height: '23px', border: 'none'), toggle_like_post_path(post.id),method: :POST,remote: true, class:"btn btn-lg btn-secondary"%>
+    <% end %>
+  </div>
+<%end%>

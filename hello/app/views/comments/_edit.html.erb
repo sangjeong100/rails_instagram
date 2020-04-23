@@ -1,0 +1,9 @@
+<% comment ||= nil %>
+ <% if comment %>
+    <%= form_for comment, remote: true do |c|%>
+        <div class="row" style="margin-left:0.5px;margin-right:0.3px;width:480px">
+            <%=c.text_area :content ,placeholder: comment.content,class:"form-control",style: "font-size:10px;width:80%",rows:"5", id:"comment_body"%>
+            <%=c.submit "수정완료",class:"btn btn-primary",style:"width:20%", id:"comment_submit_btn"%>
+        </div>
+    <% end %>
+ <% end %>

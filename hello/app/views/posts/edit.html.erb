@@ -1,0 +1,9 @@
+<div class= "container mt-5" style="font-size:12px">
+    <%=form_for @post do |post| %>
+        <%=post.label :title%><br/>
+        <%=post.text_field :title, placeholder: @post.title ,class:"form-control",style: "font-size:15px"%><br/>
+        <%=post.label :content%> <br/>
+        <%=post.text_area :content, placehoder: @post.content ,class:"form-control",style: "font-size:15px",cols:"15",rows:"15"%><br/>
+        <p style="float:right;margin-right:10px"><%=post.submit "수정완료" , class:"btn btn-lg btn-primary"%></p>
+    <%end%>
+</div>

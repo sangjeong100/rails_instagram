@@ -1,0 +1,11 @@
+<% comment ||= nil %>
+<%if comment %>
+    <ol class="row" id="ent-<%comment.id%>" style="font-size:14px;width:460px;margin-left:0px;padding-left:0px">
+        <span style="width:20%"><%= comment.user.email %></span>
+        <span style="padding-left:10px;width:70%"><%= comment.content %></span>
+        <span style="width:10%">
+            <%= link_to "댓글 삭제", comment_path(comment), method: :DELETE,data: { confirm: '정말 삭제하시겠습니까?'}, remote: true, class:"btn btn-primary" %>
+            <%= link_to "댓글 수정", edit_comment_path(comment),remote: true, class:"btn btn-primary"%>
+        </span>
+    </ol>
+<% end %>

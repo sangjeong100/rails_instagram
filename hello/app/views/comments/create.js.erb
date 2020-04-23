@@ -1,0 +1,8 @@
+ 
+var comment_list = "<%= j(render(partial: "comments/index", locals: {comments: @comments}))%>"
+
+
+$('#comments_list').html(comment_list) 
+
+$('#comment_body').val("")
+

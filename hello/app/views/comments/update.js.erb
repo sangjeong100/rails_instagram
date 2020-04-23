@@ -1,0 +1,2 @@
+var updatedform = "<%=j(render(partial: "/comments/updatedpage", locals: {comment: @comment}))%>"
+$('#ent-<%=@comment.id%>').html(updatedform)
