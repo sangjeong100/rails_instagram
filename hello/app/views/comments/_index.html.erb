@@ -1,22 +1,11 @@
 
-<div id="comments_list">
 <% comments ||= [] %>
 <% if comments&.exists? %>
 <br/>
 <%# @comments = @post.comments%>
-    <ul class="container" style="margin-left:0px;padding-left:0px">
-        <% comments.each do |comment|%>
-            <ol class="row" id="ent-<%=comment.id%>" style="font-size:14px;width:500px">
-                <span style="width:20%"><%= comment.user.email %></span>
-                <span style="padding-left:10px;width:70%"><%= comment.content %></span>
-                <span style="width:10%">
-                    <%= link_to "댓글 삭제", comment_path(comment), method: :DELETE,data: { confirm: '정말 삭제하시겠습니까?'}, remote: true, class:"btn btn-primary" %>
-                    <%= link_to "댓글 수정", edit_comment_path(comment),remote: true, class:"btn btn-primary"%>
-                </span>
-            </ol>
-            <hr/>
-        <%end%>
-    </ul>
-</div>
-
+  <ul class="container" style="">
+      <% comments.each do |comment|%>
+        <%= render 'comments/comment', comment: comment %>
+      <%end%>
+  </ul>
 <% end %>

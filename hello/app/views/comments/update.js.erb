@@ -1,2 +1,3 @@
-var updatedform = "<%=j(render(partial: "/comments/updatedpage", locals: {comment: @comment}))%>"
+var updatedform = "<%=j(render(partial: "comments/comment", locals: {comment: @comment}))%>"
 $('#ent-<%=@comment.id%>').html(updatedform)
+$("[id=ent-<%=@comment.id%>]").last().unwrap()

@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:3000" style="padding-top: 16px;font-size:15px">Rails blogs</a>
+  <a class="navbar-brand" href="<%= root_path %>" style="padding-top: 16px;font-size:15px">Rails blogs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav" style="font-size:13px">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="http://localhost:3000">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <%=link_to "게시글 목록", posts_path, class:"nav-link"%>
@@ -32,10 +32,10 @@
                     <%=link_to "회원가입", new_user_registration_path, class:"nav-link"%>
                 </li>
             <% end %>
-          
+
           <li class="nav-item">
           </li>
-        </ul>      
+        </ul>
     </div>
   </div>
 </nav>

@@ -1,20 +1,19 @@
 class CommentsController < ApplicationController
-  before_action :load_comment, only: [:destroy,:edit,:update] 
+  before_action :load_comment, only: [:destroy,:edit,:update]
 
-  def index
-    @comments = Comment.find_by(post_id: params[:id])
-    @post = Post.find_by(id: params[:id])
-  end
+  # def index
+  #   @post = Post.find_by(id: params[:id])
+  #   @comments = Comment.find_by(post_id: params[:id])
+  # end
 
   def create
     @comment = Comment.create comment_params
-    @comments = @comment.post.comments
-
+    @comments = @comment.post.comments.order(created_at: :desc)
   end
 
   def destroy
     @comment.destroy
-    
+
   end
 
   def edit

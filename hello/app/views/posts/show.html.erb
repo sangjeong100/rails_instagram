@@ -1,24 +1,29 @@
-<div class ="build" style="background-color:#dbdbdb;margin-top:0px;padding-top:0px">
-<p class="title" style="font-size:30px;padding-bottom:1px;padding-top:0.1px;"><%=@post.title%>
-    <span style="float:right;font-size:12px;font-weight:200;padding-top:14px;">
-    작성자 : <% if @post.user %> <%= @post.user.email %> <% else %> 신원미상 &nbsp&nbsp<%end%>
-    <span style="padding-left:10px;padding-right:10px">조회수 : <%= @post.hit %></span>
-    </span>
-</p>
-<hr/>
-<p id = "contents" style="overflow-x:hidden;overflow-y:auto;height:350px;text-align:left;font-size:14px"><%=@post.content %></p>
-<hr/>
-<div class="btn-group btn-lg" role="group" aria-label="Basic example">
-  <%= render partial: 'toggle_like', locals: {post: @post}%>
-    <button type="button" id="comments_index_show" class="btn btn-lg btn-secondary">댓글 목록</button>
-  <% if  (@post.user.nil?) || (@post.user.id == current_user.id)  %>
-    <%=link_to "게시글 수정", edit_post_path(@post), method: :GET ,class:"btn btn-lg btn-secondary" %>
-    <%=link_to "게시글 삭제", post_path(@post), method: :DELETE, class:"btn btn-lg btn-secondary" %>
-  <% end %>
-</div>
-<br/><br/>
-</div>
+<div class ="container">
+  <div class="build" style="background-color:#dbdbdb;margin-top:0px;padding-top:0px">
+    <p class="title" style="font-size:30px;padding-bottom:1px;padding-top:0.1px;"><%=@post.title%>
+      <span style="float:right;font-size:12px;font-weight:200;padding-top:14px;">
+        작성자 : <% if @post.user %> <%= @post.user.email %> <% else %> 신원미상 &nbsp&nbsp<%end%>
+        <span style="padding-left:10px;padding-right:10px">조회수 : <%= @post.hit %></span>
+      </span>
+    </p>
+    <hr/>
+    <p id = "contents" style="overflow-x:hidden;overflow-y:auto;height:350px;text-align:left;font-size:14px"><%=@post.content %></p>
+    <hr/>
+    <div class="btn-group btn-lg" role="group" aria-label="Basic example">
+      <%= render partial: 'toggle_like', locals: {post: @post}%>
+      <button type="button" id="comments_index_show" class="btn btn-lg btn-secondary">댓글 목록</button>
+      <% if  (@post.user.nil?) || (@post.user.id == current_user.id)  %>
+      <%=link_to "게시글 수정", edit_post_path(@post), method: :GET ,class:"btn btn-lg btn-secondary" %>
+      <%=link_to "게시글 삭제", post_path(@post), method: :DELETE, class:"btn btn-lg btn-secondary" %>
+      <% end %>
+    </div>
+    <br/><br/>
+  </div>
 
 
-<%= render partial: 'comments/create', locals: {post: @post}%>
-<%= render partial: 'comments/index', locals: {comments: @post.comments}%>
+  <%= render partial: 'comments/create', locals: {post: @post}%>
+  <div id="comments_list">
+    <%= render partial: 'comments/index', locals: {comments: @post.comments.order(created_at: :desc)}%>
+  </div>
+
+</div>

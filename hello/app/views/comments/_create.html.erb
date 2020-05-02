@@ -1,9 +1,9 @@
 <% comment ||= Comment.new %>
 <% post ||= nil %>
  <% if post %>
-    <div style="margin-top:3px;padding-left:20px">
+    <div class="mt-5">
     <%=form_for comment, remote: true do |f|  %>
-        <div class="row" style="margin-left:0.5px;margin-right:0.3px;width:480px">
+        <div class="row" style="margin-left:0.5px;margin-right:0.3px;">
             <%=f.text_area :content ,placeholder: "댓글을 입력해주세요.",class:"form-control",style: "font-size:10px;width:80%",rows:"5", id:"comment_body"%>
             <%=f.hidden_field :user_id, value: current_user.id %>
             <%=f.hidden_field :post_id, value: post.id%>
