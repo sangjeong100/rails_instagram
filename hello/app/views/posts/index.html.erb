@@ -1,29 +1,30 @@
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">제목</th>
-      <th scope="col">작성자</th>
-      <th scope="col">조회수</th>
-      <th scope="col"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post|%>
-        <tr>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col">조회수</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post|%>
+      <tr>
         <th scope="row"><%=post.id%></th>
-            <td><%=post.title%></td>
-            <% if post.user %>
-            <td><%=post.user.email%></td>
-            <% else %>
-            <td>신원 미상</td>
-            <% end %>
-            <td><%=post.hit%></td>
-            <td><%=link_to "상세보기", post_path(post), class:"btn btn-primary"%></td>
-        </tr>
-    <%end %>
-   
-  </tbody>
-</table>
- <hr/>
+        <td><%=post.title%></td>
+        <% if post.user %>
+        <td><%=post.user.email%></td>
+        <% else %>
+        <td>신원 미상</td>
+        <% end %>
+        <td><%=post.hit%></td>
+        <td><%=link_to "상세보기", post_path(post), class:"btn btn-primary"%></td>
+      </tr>
+      <%end %>
+
+    </tbody>
+  </table>
+  <hr/>
+</div>
