@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
   before_action :load_post ,only: [:edit,:update,:show,:destroy]
   before_action :authenticate_user!
+  impressionist actions: [:show], :unique => [:impressionable_id, :ip_address]
 
   def index
     @posts = Post.all
+    @posts = Post.order(created_at: :desc).page params[:page]
   end
 
   def new
@@ -17,8 +19,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(5)
+
     @post.hit +=1
     @post.save
+
   end
 
   def toggle_like

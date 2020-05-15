@@ -1,3 +1,5 @@
 var like_html = "<%=j(render(partial: "toggle_like", locals:{post: @post}))%>";
+var like_count = "<%=j(render(partial: "like_count", locals:{post: @post}))%>"
 
 $('#toggle_like').html(like_html);
+$('#<%=@post.id%>-like_count').html(like_count);

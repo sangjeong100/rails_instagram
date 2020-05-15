@@ -11,6 +11,9 @@ gem 'jquery'
 
 gem 'bootstrap-sass'
 
+gem 'impressionist' #조회수 gem
+
+gem 'kaminari'
 
 gem 'carrierwave' , '~>1.0'
 
