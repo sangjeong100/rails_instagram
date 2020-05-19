@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Blog</title>
+    <title>Instagram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag 'ruby_logo.ico'%>
+    <%= favicon_link_tag 'instagram_logo.ico'%>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,13 +18,16 @@
 
   <body id="all_body">
     <%=render partial: "shared/header"%>
-    <%= yield %>
+    
+    <main class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>
 
 <style>
 
 #all_body {
-  background: url("/home.jpg")
+  background-color: #FAFAFA; 
 }
 </style>

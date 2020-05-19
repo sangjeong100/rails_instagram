@@ -17,6 +17,7 @@ gem 'kaminari'
 
 gem 'carrierwave' , '~>1.0'
 
+gem 'font-awesome-rails' #font 사용
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'

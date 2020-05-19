@@ -4,8 +4,11 @@ class PostsController < ApplicationController
   impressionist actions: [:show], :unique => [:impressionable_id, :ip_address]
 
   def index
-    @posts = Post.all
-    @posts = Post.order(created_at: :desc).page params[:page]
+    if params[:user_id] 
+      @posts = Post.find_by(user_id: params[:user_id]).order(created_at: :desc).page params[:page]
+    else
+      @posts = Post.order(created_at: :desc).page params[:page]
+    end
   end
 
   def new

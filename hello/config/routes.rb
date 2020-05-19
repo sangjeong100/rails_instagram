@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :comments do
   end
 
+  resources :users, only: [:show]
+
   scope module: :front do
   namespace :my do
     resources :passwords, only: [:edit, :update]  #비밀번호 변경 기능
