@@ -10,16 +10,27 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :comments do
   end
 
   resources :users, only: [:show]
 
   scope module: :front do
-  namespace :my do
-    resources :passwords, only: [:edit, :update]  #비밀번호 변경 기능
-    resources  :resigns, only: [:edit, :destroy]    #회원 탈퇴기능
-  end
+    # scope module: :users do
+    #   resources :follow_relationships, only: [:create, :destroy] #팔로우/언팔로우시 처리로직 (화면설계 5에 해당)
+    # end
+    # scope module: :users do
+    #   resources :top,       only: [:index], as: "top", path: "" # 프로필 페이지TOP(화면설계 1,3,4에해당)
+    #   resources :followers,  only: [:index] # Follower일람 페이지(화면설계 2에해당)
+    #   resources :followings, only: [:index] # Following일람 페이지(화면설계 2에해당)
+    # end
+
+    namespace :my do
+      resources :passwords, only: [:edit, :update]  #비밀번호 변경 기능
+      resources  :resigns, only: [:edit, :destroy]    #회원 탈퇴기능
+    end
+
   end
 
 end
