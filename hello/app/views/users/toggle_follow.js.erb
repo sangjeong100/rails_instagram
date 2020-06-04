@@ -1,0 +1,5 @@
+var follow_html = "<%=j(render(partial: "toggle_follow"))%>";
+var follower_count = "<%=j(render(partial: "follower_count"))%>"
+
+$('#toggle_follow').html(follow_html);
+$('#<%=@user.id%>-follower_count').html(follower_count);

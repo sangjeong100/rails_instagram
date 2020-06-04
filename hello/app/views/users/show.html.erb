@@ -19,15 +19,32 @@
         </div>
         <ul class="posts">
           <li><span><%= @user.posts.size %></span> posts</li>
-          <li ><span> 000 </span> follwers</li>
-          <li ><span> 000 </span> following</li>
+          <li><%= render partial:'follower_count'%> followers</li>
+          <li><span> <%= @user.followings.size%> </span> followings</li>
         </ul>
         <h2 class="email" ><%=@user.email%></h3>
         <h2 class="phone_number" ><%=@user.phone_number%></h2>
+        <% if current_user%>
+          <div class="row">
+            <div id="toggle_follow">
+              <%= render partial: "toggle_follow"%>
+            </div>
+            <div style="margin-left:5px">
+              <%=link_to "메세지보내기",user_path(@user.id),method: :POST,remote: true, class:"btn btn-lg btn-primary"%>
+            </div>
+            <% if current_user.id == @user.id %>
+              <div style="margin-left:5px">
+                <%=link_to "게시글 작성", new_post_path, class:"btn btn-lg btn-primary" %>
+              </div>
+            <%end%>
+          </div>
+        <%end%>
       </div>
     </div>
   </div>
   <hr/>
+  <%= render partial: "posts/index"%>
+
 
 <% end %>
 <style>

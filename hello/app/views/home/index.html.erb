@@ -1,4 +1,10 @@
 <div class="container">
+  <div>
+    <% @users.each do |user|%>
+    <%=link_to "#{user.email}프로필", user_path(id: user.id)%>  
+    <%end%>
+  </div>
+  
   <table class="table">
     <thead>
       <tr>

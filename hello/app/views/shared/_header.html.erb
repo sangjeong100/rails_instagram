@@ -11,10 +11,21 @@
 
   <div class="collapse navbar-collapse" id="navbarNav" style="font-size:13px">
     <div style = "padding-left : 100px; padding-right : 100px;">
-      <form class="form-inline search-form">
+      <%# <form class="form-inline search-form">
         <input class="form-control mr-sm-2" type="search" placeholder="@Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      </form> %>
+      <%= form_with(url: users_path, method: "get", local: true) do %>
+        <%= label_tag(:q, "Search for")%>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search")%>
+      <% end %>
+      <%#= @q|= User.new %>
+      <%#= search_form_for @q, url: users_path, html: {method: :get} do |f| %>
+        <%#= f.label :Search %>
+        <%#= f.search_field :user_name_or_email%>
+        <%#= f.submit "Search" %>
+      <%#end %>
     </div>
     <ul class="navbar-nav" style="padding-left : 100px">
       <li class="nav-item active">
@@ -47,6 +58,9 @@
               <img src="/instagram/instagram_default_profile.png" class="img-responsive img-circle" width = "25" height = "25" alt = "개인 프로필">       
             <%end%>
           </a>
+        </li>
+        <li class="nav-item" style = "padding-left">
+            <%=link_to "로그아웃",  destroy_user_session_path,method: :DELETE ,class:"nav-link" %>
         </li>
 
       <% else %>

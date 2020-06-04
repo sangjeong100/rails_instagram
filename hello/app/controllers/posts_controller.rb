@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create post_params
-    redirect_to posts_path
+    redirect_to user_path(current_user.id)
   end
 
   def show
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title,:content,:hit,:user_id)
+      params.require(:post).permit(:title,:content,:hit,:user_id,:avatar)
     end
 
 end

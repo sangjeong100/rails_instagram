@@ -1,0 +1,25 @@
+<hr/>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">email</th>
+        <th scope="col">user_name</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index|%>
+      <tr>
+        <th scope="row"><%=index + 1%></th>
+        <td><%=user.email%></td>
+        <td><%=user.user_name%></td>
+        <td><%=link_to "프로필가기", user_path(user), class:"btn btn-primary"%></td>
+      </tr>
+      <%end %>
+
+    </tbody>
+  </table>
+  <hr/>
+</div>

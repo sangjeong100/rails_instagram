@@ -12,7 +12,6 @@
     <hr/>
     <div class="btn-group btn-lg" role="group" aria-label="Basic example">
       <%= render partial: 'toggle_like', locals: {post: @post}%>
-      <%# <button type="button" id="comments_index_show" class="btn btn-lg btn-secondary">댓글 목록</button> %>
       <% if  (@post.user.nil?) || (@post.user.id == current_user.id)  %>
       <%=link_to "게시글 수정", edit_post_path(@post), method: :GET ,class:"btn btn-lg btn-secondary" %>
       <%=link_to "게시글 삭제", post_path(@post), method: :DELETE, class:"btn btn-lg btn-secondary" %>

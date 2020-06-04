@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
+  def index
+    @q = User.ransank(params[:q])
+    @users = @q.result(distinct: true)
+  end
+
+
   def resource_name
     :user
   end

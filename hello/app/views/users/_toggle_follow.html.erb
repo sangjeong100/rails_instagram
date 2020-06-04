@@ -1,0 +1,9 @@
+<% if current_user.followings.find_by(follower_id: @user.id).nil? %>  
+    <% if current_user.followers.find_by(following_id: @user.id).nil? %>
+        <%=link_to "팔로우하기", toggle_follow_user_path(@user.id),method: :POST,remote: true, class:"btn btn-lg btn-secondary"%>
+    <% else %>
+        <%=link_to "맞팔로우하기", toggle_follow_user_path(@user.id),method: :POST,remote: true, class:"btn btn-lg btn-secondary"%>
+    <% end %>
+<% else %>
+    <%=link_to "언팔로우하기", toggle_follow_user_path(@user.id),method: :POST,remote: true, class:"btn btn-lg btn-secondary"%>
+<% end %>
